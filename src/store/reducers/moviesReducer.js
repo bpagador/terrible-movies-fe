@@ -7,6 +7,8 @@ export const initialState = {
 export default function reducer(state, action) {
   switch(action.type) {
     case SET_MOVIES:
-      return { movies: action.payload };
+      return { ...state, movies: action.payload };
+    default:
+      return state;
   }
 }
