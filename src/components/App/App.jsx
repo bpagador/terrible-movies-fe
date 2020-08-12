@@ -1,8 +1,21 @@
 import React from 'react';
-import MoviesList from '../movies/MoviesList';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import Signup from '../auth/Signup';
+// import MoviesList from '../movies/MoviesList';
 
 
 export default function App() {
-  return <MoviesList />;
+  return (
+    <Router>
+      <Switch>
+        <Route path="/signup" component={Signup} />
+      </Switch>
+    </Router>
+
+  );
 }
   
