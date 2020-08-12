@@ -15,7 +15,6 @@ export default function App() {
       <Header />
       <Switch>
         <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
       </Switch>
     </Router>
 
