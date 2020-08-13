@@ -7,6 +7,12 @@ export const useCurrentUser = () => {
   return currentUser;
 };
 
+export const useAuthError = () => {
+  const { authError } = useContext(AuthContext);
+  return authError;
+};
+
+
 export const useSignup = () => {
   const { signup } = useContext(AuthContext);
   return signup;
