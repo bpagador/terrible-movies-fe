@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLogin } from '../../hooks/AuthContext';
+import AuthError from './AuthError';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ const Login = () => {
 
   return (
     <>
+      <AuthError />
       <form onSubmit={handleSubmit}>
         <input
           type="email"
