@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AuthContext } from '../hooks/AuthContext';
-import { fetchSignup } from '../services/auth';
+import { fetchSignup, fetchLogin } from '../services/auth';
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
@@ -15,9 +15,12 @@ const AuthProvider = ({ children }) => {
   const signup = (email, password, avatar) => 
     authService(fetchSignup, email, password, avatar);
 
+  const login = (email, password) =>
+    authService(fetchLogin, email, password);
+
 
   return (
-    <AuthContext.Provider value={{ currentUser, signup }}>
+    <AuthContext.Provider value={{ currentUser, signup, login }}>
       {children}
     </AuthContext.Provider>
   );
