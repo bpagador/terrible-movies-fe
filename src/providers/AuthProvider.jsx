@@ -6,10 +6,12 @@ import { fetchSignup, fetchLogin } from '../services/auth';
 const AuthProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(null);
+  const [authError, setAuthError] = useState(null);
 
   const authService = (serviceFn, ...args) => {
     return serviceFn(...args)
-      .then(user => setCurrentUser(user));
+      .then(user => setCurrentUser(user))
+      .catch(err => setAuthError(err));
   };
 
   const signup = (email, password, avatar) => 
@@ -20,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{ currentUser, signup, login }}>
+    <AuthContext.Provider value={{ currentUser, authError, signup, login }}>
       {children}
     </AuthContext.Provider>
   );
